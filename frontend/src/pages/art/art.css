@@ -11,11 +11,15 @@
 
 .input {
     margin-top: 10px;
-    width: 500px;
-    height: 100px;
+    width: 600px;
     border-radius: 2px;
 }
 
 .gallery {
     margin-top: 40px;
+}
+
+.card {
+    padding: 8px;
+    margin-bottom: 20px;
 }

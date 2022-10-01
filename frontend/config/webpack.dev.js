@@ -32,7 +32,18 @@ module.exports = merge(common, {
 		compress: true,
 		hot: true,
 		port: 3000,
-		allowedHosts: ['127.0.0.1:8000']
+		allowedHosts: ['localhost:8000', '127.0.0.1:8000'],
+		proxy: {
+			"/api": {
+				target: 'http://localhost:8000',
+        		pathRewrite: { '^/api': '' }
+			}
+        },
+		headers: {
+    		"Access-Control-Allow-Origin": "*",
+    		"Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+    		"Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+  		}
 	},
 
 	plugins: [
