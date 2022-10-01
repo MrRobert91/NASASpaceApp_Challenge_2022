@@ -4,22 +4,26 @@ import json
 
 app = FastAPI()
 
+
 @app.get("/")
 async def home(request: Request):
-    return {"msg":"NASA SpaceApp Challenge!"}
+    return {"msg": "NASA SpaceApp Challenge!"}
+
 
 @app.get("/generate")
 async def generate(request: Request):
-    return FileResponse("./api/mars.jpg")
+    return FileResponse("./resources/mars.jpg")
+
 
 @app.get("/space-objects")
 async def generate(request: Request):
-    with open("./api/resources/space_objects.json", "r") as space_objects:
+    with open("./resources/space_objects.json", "r") as space_objects:
         space_objects = json.loads(space_objects.read())
         return space_objects
 
+
 @app.get("/artists")
 async def generate(request: Request):
-    with open("./api/resources/artists.json", "r") as artists:
+    with open("./resources/artists.json", "r") as artists:
         artists = json.loads(artists.read())
         return artists

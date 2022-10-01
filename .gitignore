@@ -128,3 +128,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 .idea
+
+# MACOSX
+.DS_Store
+
+# Frontend
+frontend/build
+frontend/node_modules
