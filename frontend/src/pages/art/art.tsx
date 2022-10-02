@@ -3,6 +3,7 @@ import './art.css';
 import { TextareaAutosize } from '@mui/base'
 import {Card, Grid} from "@mui/material";
 import Typography from "@mui/material/Typography";
+import {Api} from "~/api/api-service";
 
 export class ArtPage extends Component {
 
@@ -30,18 +31,18 @@ export class ArtPage extends Component {
   	}
 
 	private requestImage = () => {
-		console.log('searchValue', this.state.search)
+		const searchQuery = this.state.search;
 		// Do request and parse binary like blob
-		/*Api.generateImage().then(response => {
+		Api.generateImage2(searchQuery).then(response => {
 			console.log(response)
 			if (response.ok) {
 				response.blob().then(img =>
 					this.setState({imgUrl: URL.createObjectURL(img)})
 				)
 			}
-		});*/
-		const imgUrl = 'http://localhost:8000/generate';
-		this.setState({imgUrl})
+		});
+		//const imgUrl = 'http://localhost:8000/generate';
+		//this.setState({imgUrl})
 	}
 
 	private handleKeyDown = (e: { key: string; }) => {
