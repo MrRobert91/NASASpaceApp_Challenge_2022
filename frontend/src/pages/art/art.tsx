@@ -31,9 +31,9 @@ export class ArtPage extends Component {
   	}
 
 	private requestImage = () => {
-		const searchQuery = this.state.search;
+		//const searchQuery = this.state.search;
 		// Do request and parse binary like blob
-		Api.generateImage2(searchQuery).then(response => {
+		Api.generateImage().then(response => {
 			console.log(response)
 			if (response.ok) {
 				response.blob().then(img =>
@@ -41,8 +41,6 @@ export class ArtPage extends Component {
 				)
 			}
 		});
-		//const imgUrl = 'http://localhost:8000/generate';
-		//this.setState({imgUrl})
 	}
 
 	private handleKeyDown = (e: { key: string; }) => {

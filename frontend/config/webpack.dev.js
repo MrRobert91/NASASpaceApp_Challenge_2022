@@ -34,9 +34,12 @@ module.exports = merge(common, {
 		port: 3000,
 		allowedHosts: ['localhost:8000', '127.0.0.1:8000'],
 		proxy: {
-			"/api": {
-				target: 'http://localhost:8000',
-        		pathRewrite: { '^/api': '' }
+			'/api': {
+				target: 'http://127.0.0.1:8000',
+        		pathRewrite: { '^/api': '' },
+				secure: false,
+				logLevel: "debug",
+				changeOrigin: true
 			}
         },
 		headers: {
